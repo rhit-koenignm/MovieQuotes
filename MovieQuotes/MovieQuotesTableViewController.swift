@@ -10,6 +10,9 @@ import UIKit
 class MovieQuotesTableViewController: UITableViewController {
     
     let movieQuoteCellIdentifier = "MovieQuoteCell"
+    
+    let detailSegueIdentifier = "DetailSegue"
+    
     //var names = ["Natalie", "Greg", "Stef", "Josie", "Misty"]
     var movieQuotes = [MovieQuote]()
     
@@ -68,6 +71,14 @@ class MovieQuotesTableViewController: UITableViewController {
             movieQuotes.remove(at: indexPath.row)
             tableView.reloadData()
             //print("Delete this quote")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == detailSegueIdentifier {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                (segue.destination as! MovieQuoteDetailViewController).movieQuote = movieQuotes[indexPath.row]
+            }
         }
     }
 }
