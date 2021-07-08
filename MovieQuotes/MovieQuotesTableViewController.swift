@@ -15,8 +15,16 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(showAddQuoteDialog))
+        
+        
         movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
         movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+    }
+    
+    @objc func showAddQuoteDialog() {
+        print("You pressed the add button")
     }
     
     
