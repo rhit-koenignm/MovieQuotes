@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieQuoteDetailViewController: UIViewController {
     
@@ -13,6 +14,8 @@ class MovieQuoteDetailViewController: UIViewController {
     @IBOutlet weak var movieLabel: UILabel!
     
     var movieQuote: MovieQuote?
+    var movieQuoteRef: DocumentReference!
+    var movieQuoteListener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +41,13 @@ class MovieQuoteDetailViewController: UIViewController {
             let movieTextField = alertController.textFields![1] as UITextField
             //print(quoteTextField.text)
             //print(movieTextField.text)
-            self.movieQuote?.quote = quoteTextField.text!
-            self.movieQuote?.movie = movieTextField.text!
-            self.updateView()
+//            self.movieQuote?.quote = quoteTextField.text!
+//            self.movieQuote?.movie = movieTextField.text!
+//            self.updateView()
+            self.movieQuoteRef.updateData([
+                "quote": quoteTextField.text!,
+                "movie": movieTextField.text!
+            ])
         }
         alertController.addAction(submitAction)
         
@@ -50,9 +57,27 @@ class MovieQuoteDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateView()
+        //updateView()
+        movieQuoteListener = movieQuoteRef.addSnapshotListener{ (DocumentSnapshot, error) in
+            if let error = error {
+                print("Error getting movie quote \(error)")
+                return
+            }
+            if !DocumentSnapshot!.exists {
+                print("Might go back to the list since someone else deleted this document.")
+                return
+            }
+            
+            self.movieQuote = MovieQuote(documentSnapshot: DocumentSnapshot!)
+            self.updateView()
+            
+        }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        movieQuoteListener.remove()
+    }
     
     func updateView() {
         quoteLabel.text = movieQuote?.quote
