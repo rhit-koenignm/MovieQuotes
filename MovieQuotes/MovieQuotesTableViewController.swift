@@ -90,7 +90,8 @@ class MovieQuotesTableViewController: UITableViewController {
             self.movieQuotesRef.addDocument(data: [
                 "quote": quoteTextField.text!,
                 "movie": movieTextField.text!,
-                "created": Timestamp.init()
+                "created": Timestamp.init(),
+                "author": Auth.auth().currentUser!.uid
             ])
             //print(quoteTextField.text)
             //print(movieTextField.text)
@@ -115,6 +116,11 @@ class MovieQuotesTableViewController: UITableViewController {
         cell.textLabel?.text = movieQuotes[indexPath.row].quote
         cell.detailTextLabel?.text = movieQuotes[indexPath.row].movie
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let movieQuote = movieQuotes[indexPath.row]
+        return Auth.auth().currentUser!.uid == movieQuote.author
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
