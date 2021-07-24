@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B4C80BD09FC2F0DEEAC7272E /* Pods_MovieQuotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D4351DEAAAA4BAC7358CDC /* Pods_MovieQuotes.framework */; };
+		F22F14CA26ABD7F400C76576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */; };
 		F2639C00268EBC950002F9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639BFF268EBC950002F9AB /* AppDelegate.swift */; };
 		F2639C02268EBC950002F9AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C01268EBC950002F9AB /* SceneDelegate.swift */; };
 		F2639C04268EBC950002F9AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C03268EBC950002F9AB /* ViewController.swift */; };
@@ -17,13 +18,13 @@
 		F2639C1626969D860002F9AB /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C1526969D860002F9AB /* MovieQuotesTableViewController.swift */; };
 		F2639C1826969FF70002F9AB /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C1726969FF70002F9AB /* MovieQuote.swift */; };
 		F2639C1A2696AD640002F9AB /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */; };
-		F2639C1C26A1275A0002F9AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2639C1B26A1275A0002F9AB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		675856B250A88F2FE5FA9FF8 /* Pods-MovieQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.release.xcconfig"; path = "Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		A7D4351DEAAAA4BAC7358CDC /* Pods_MovieQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AE42E7531E2CBB386261F5 /* Pods-MovieQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.debug.xcconfig"; path = "Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.debug.xcconfig"; sourceTree = "<group>"; };
+		F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2639BFC268EBC950002F9AB /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2639BFF268EBC950002F9AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2639C01268EBC950002F9AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		F2639C1526969D860002F9AB /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 		F2639C1726969FF70002F9AB /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
 		F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
-		F2639C1B26A1275A0002F9AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,6 @@
 				F1AE42E7531E2CBB386261F5 /* Pods-MovieQuotes.debug.xcconfig */,
 				675856B250A88F2FE5FA9FF8 /* Pods-MovieQuotes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,12 +88,12 @@
 		F2639BFE268EBC950002F9AB /* MovieQuotes */ = {
 			isa = PBXGroup;
 			children = (
-				F2639C1B26A1275A0002F9AB /* GoogleService-Info.plist */,
 				F2639BFF268EBC950002F9AB /* AppDelegate.swift */,
 				F2639C1726969FF70002F9AB /* MovieQuote.swift */,
 				F2639C01268EBC950002F9AB /* SceneDelegate.swift */,
 				F2639C03268EBC950002F9AB /* ViewController.swift */,
 				F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */,
+				F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */,
 				F2639C05268EBC950002F9AB /* Main.storyboard */,
 				F2639C1526969D860002F9AB /* MovieQuotesTableViewController.swift */,
 				F2639C08268EBC960002F9AB /* Assets.xcassets */,
@@ -164,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2639C0C268EBC960002F9AB /* LaunchScreen.storyboard in Resources */,
-				F2639C1C26A1275A0002F9AB /* GoogleService-Info.plist in Resources */,
+				F22F14CA26ABD7F400C76576 /* GoogleService-Info.plist in Resources */,
 				F2639C09268EBC960002F9AB /* Assets.xcassets in Resources */,
 				F2639C07268EBC950002F9AB /* Main.storyboard in Resources */,
 			);
