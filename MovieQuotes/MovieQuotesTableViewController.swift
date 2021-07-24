@@ -34,6 +34,22 @@ class MovieQuotesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         
+        if (Auth.auth().currentUser == nil){
+            //You are NOT signed in
+            print("Signing in!")
+            Auth.auth().signInAnonymously { (authResult, error) in
+                if let error = error {
+                    print("Error with Anonymous auth! \(error)")
+                    return
+                }
+                print("Success! You signed in. Well done!")
+            }
+            
+        } else {
+            //You are already signed in
+            print("You are already signed in")
+        }
+        
         movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 self.movieQuotes.removeAll()
