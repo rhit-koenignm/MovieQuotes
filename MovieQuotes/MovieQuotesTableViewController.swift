@@ -22,12 +22,31 @@ class MovieQuotesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(showAddQuoteDialog))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showMenu))
+        
+        
+        
         movieQuotesRef = Firestore.firestore().collection("MovieQuotes")
         
         
 //        movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
 //        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+    }
+    
+    @objc func showMenu() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        
+        let submitAction = UIAlertAction(title: "Create Quote", style: UIAlertAction.Style.default) { (action) in
+            self.showAddQuoteDialog()
+        }
+        alertController.addAction(submitAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
