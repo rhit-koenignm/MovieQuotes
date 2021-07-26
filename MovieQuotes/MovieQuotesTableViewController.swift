@@ -14,6 +14,7 @@ class MovieQuotesTableViewController: UITableViewController {
     let detailSegueIdentifier = "DetailSegue"
     var movieQuotesRef: CollectionReference!
     var movieQuoteListener: ListenerRegistration!
+    var isShowingAllQuotes = true
     
     //var names = ["Natalie", "Greg", "Stef", "Josie", "Misty"]
     var movieQuotes = [MovieQuote]()
@@ -42,12 +43,21 @@ class MovieQuotesTableViewController: UITableViewController {
             self.showAddQuoteDialog()
         }
         alertController.addAction(submitAction)
+        let showAction = UIAlertAction(title: self.isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { (action) in
+            //Toggle the show all vs show mine mode.
+            self.isShowingAllQuotes = !self.isShowingAllQuotes
+            //Update
+            self.startListening()
+        }
+        alertController.addAction(showAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,7 +79,18 @@ class MovieQuotesTableViewController: UITableViewController {
             print("You are already signed in")
         }
         
-        movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener { (querySnapshot, error) in
+        startListening()
+    }
+    
+    func startListening() {
+        if (movieQuoteListener != nil) {
+            movieQuoteListener.remove()
+        }
+        var query = movieQuotesRef.order(by: "created", descending: true).limit(to: 50)
+        if (!isShowingAllQuotes) {
+            query = query.whereField("author", isEqualTo: Auth.auth().currentUser!.uid)
+        }
+        movieQuoteListener = query.addSnapshotListener { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 self.movieQuotes.removeAll()
                 querySnapshot.documents.forEach { (documentSnapshot) in
@@ -139,7 +160,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let movieQuote = movieQuotes[indexPath.row]
-        return Auth.auth().currentUser!.uid == movieQuote.author
+        return Auth.auth().currentUser?.uid == movieQuote.author
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
