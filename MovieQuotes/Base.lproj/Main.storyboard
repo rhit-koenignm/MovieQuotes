@@ -39,6 +39,21 @@
                                     <action selector="pressedLogInExistingUser:" destination="ANv-pH-gIq" eventType="touchUpInside" id="idm-EL-kvS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4b-Bc-OQD">
+                                <rect key="frame" x="57" y="445" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6BF-gi-4rx"/>
+                                    <constraint firstAttribute="height" constant="60" id="FlD-GN-Vnx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <state key="normal" title="Sign in with Rosefire">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRosefireLogin:" destination="ANv-pH-gIq" eventType="touchUpInside" id="Bgu-vZ-pZF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XEq-8i-6CZ"/>
                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,9 +65,11 @@
                             <constraint firstItem="pxv-PA-YkG" firstAttribute="top" secondItem="M1U-HT-sWA" secondAttribute="bottom" constant="30" id="QYL-eK-lP5"/>
                             <constraint firstItem="M1U-HT-sWA" firstAttribute="leading" secondItem="XEq-8i-6CZ" secondAttribute="leading" constant="20" id="ZJT-Nq-xaw"/>
                             <constraint firstItem="luW-IQ-Jwv" firstAttribute="leading" secondItem="XEq-8i-6CZ" secondAttribute="leading" constant="20" id="aUZ-v3-EDu"/>
+                            <constraint firstItem="V4b-Bc-OQD" firstAttribute="centerY" secondItem="XEq-8i-6CZ" secondAttribute="centerY" id="lWk-h3-rw6"/>
                             <constraint firstItem="XEq-8i-6CZ" firstAttribute="trailing" secondItem="M1U-HT-sWA" secondAttribute="trailing" constant="20" id="mWQ-ls-2uy"/>
                             <constraint firstItem="XEq-8i-6CZ" firstAttribute="trailing" secondItem="pxv-PA-YkG" secondAttribute="trailing" constant="20" id="mZ9-nd-Zk8"/>
                             <constraint firstItem="lE6-N0-S93" firstAttribute="top" secondItem="XEq-8i-6CZ" secondAttribute="top" constant="50" id="p9W-sf-9ba"/>
+                            <constraint firstItem="V4b-Bc-OQD" firstAttribute="centerX" secondItem="XEq-8i-6CZ" secondAttribute="centerX" id="vkj-2P-Ubl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="juP-Gu-iGB"/>
