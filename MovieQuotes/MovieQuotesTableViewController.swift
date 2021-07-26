@@ -63,25 +63,46 @@ class MovieQuotesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         
-        if (Auth.auth().currentUser == nil){
-            //You are NOT signed in
-            print("Signing in!")
-            Auth.auth().signInAnonymously { (authResult, error) in
-                if let error = error {
-                    print("Error with Anonymous auth! \(error)")
-                    return
-                }
-                print("Success! You signed in. Well done!")
-            }
-            
+        
+        //This is anonymous auth
+//        if (Auth.auth().currentUser == nil){
+//            //You are NOT signed in
+//            print("Signing in!")
+//            Auth.auth().signInAnonymously { (authResult, error) in
+//                if let error = error {
+//                    print("Error with Anonymous auth! \(error)")
+//                    return
+//                }
+//                print("Success! You signed in. Well done!")
+//            }
+//
+//        } else {
+//            //You are already signed in
+//            print("You are already signed in")
+//        }
+//
+//        startListening()
+//
+//        Use this code later
+//        do {
+//        try Auth.auth().signOut()
+//        } catch {
+//            print("Sign out error")
+//        }
+        
+        
+        if (Auth.auth().currentUser == nil) {
+            print("There is no user. Go back to the login page")
         } else {
-            //You are already signed in
-            print("You are already signed in")
+            print("You are signed in already!")
         }
+        
+        
         
         startListening()
     }
-    
+
+        
     func startListening() {
         if (movieQuoteListener != nil) {
             movieQuoteListener.remove()

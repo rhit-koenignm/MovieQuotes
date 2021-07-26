@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4C80BD09FC2F0DEEAC7272E /* Pods_MovieQuotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D4351DEAAAA4BAC7358CDC /* Pods_MovieQuotes.framework */; };
 		F22F14CA26ABD7F400C76576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */; };
+		F22F14D026AE6F4B00C76576 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22F14CF26AE6F4B00C76576 /* LogInViewController.swift */; };
 		F2639C00268EBC950002F9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639BFF268EBC950002F9AB /* AppDelegate.swift */; };
 		F2639C02268EBC950002F9AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C01268EBC950002F9AB /* SceneDelegate.swift */; };
 		F2639C04268EBC950002F9AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C03268EBC950002F9AB /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		A7D4351DEAAAA4BAC7358CDC /* Pods_MovieQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AE42E7531E2CBB386261F5 /* Pods-MovieQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.debug.xcconfig"; path = "Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.debug.xcconfig"; sourceTree = "<group>"; };
 		F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F22F14CF26AE6F4B00C76576 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F2639BFC268EBC950002F9AB /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2639BFF268EBC950002F9AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2639C01268EBC950002F9AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				F2639C1726969FF70002F9AB /* MovieQuote.swift */,
 				F2639C01268EBC950002F9AB /* SceneDelegate.swift */,
 				F2639C03268EBC950002F9AB /* ViewController.swift */,
+				F22F14CF26AE6F4B00C76576 /* LogInViewController.swift */,
 				F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */,
 				F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */,
 				F2639C05268EBC950002F9AB /* Main.storyboard */,
@@ -221,6 +224,7 @@
 				F2639C04268EBC950002F9AB /* ViewController.swift in Sources */,
 				F2639C00268EBC950002F9AB /* AppDelegate.swift in Sources */,
 				F2639C1826969FF70002F9AB /* MovieQuote.swift in Sources */,
+				F22F14D026AE6F4B00C76576 /* LogInViewController.swift in Sources */,
 				F2639C1A2696AD640002F9AB /* MovieQuoteDetailViewController.swift in Sources */,
 				F2639C02268EBC950002F9AB /* SceneDelegate.swift in Sources */,
 				F2639C1626969D860002F9AB /* MovieQuotesTableViewController.swift in Sources */,
