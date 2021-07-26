@@ -15,6 +15,7 @@ class MovieQuotesTableViewController: UITableViewController {
     var movieQuotesRef: CollectionReference!
     var movieQuoteListener: ListenerRegistration!
     var isShowingAllQuotes = true
+    var authListenerHandle: AuthStateDidChangeListenerHandle!
     
     //var names = ["Natalie", "Greg", "Stef", "Josie", "Misty"]
     var movieQuotes = [MovieQuote]()
@@ -53,6 +54,15 @@ class MovieQuotesTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { (action) in
+            do {
+            try Auth.auth().signOut()
+            } catch {
+                print("Sign out error")
+            }
+        }
+        alertController.addAction(signOutAction)
+        
         
         present(alertController, animated: true, completion: nil)
     }
@@ -90,14 +100,15 @@ class MovieQuotesTableViewController: UITableViewController {
 //            print("Sign out error")
 //        }
         
-        
-        if (Auth.auth().currentUser == nil) {
-            print("There is no user. Go back to the login page")
-        } else {
-            print("You are signed in already!")
+        authListenerHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // ...
+            if (Auth.auth().currentUser == nil) {
+                print("There is no user. Go back to the login page")
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("You are signed in. Stay on this page")
+            }
         }
-        
-        
         
         startListening()
     }
@@ -130,6 +141,7 @@ class MovieQuotesTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         movieQuoteListener.remove()
+        Auth.auth().removeStateDidChangeListener(authListenerHandle)
     }
     
     @objc func showAddQuoteDialog() {
@@ -181,7 +193,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let movieQuote = movieQuotes[indexPath.row]
-        return Auth.auth().currentUser?.uid == movieQuote.author
+        return Auth.auth().currentUser!.uid == movieQuote.author
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
