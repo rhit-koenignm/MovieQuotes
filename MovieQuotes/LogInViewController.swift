@@ -14,7 +14,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
+    let REGISTRY_TOKEN = "2cc34286-ac2f-4754-b796-baba9632702a" //TODO go visit rosefire.csse.rose-hulman.edu to generate this!
     let showListSegueIdentifier = "ShowListSegue"
 
     override func viewDidLoad() {
@@ -73,27 +73,28 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func pressedRosefireLogin(_ sender: Any) {
-        print("TODO: Use Rosefire")
-        
-//        Rosefire.sharedDelegate().uiDelegate = self // This should be your view controller
-//        Rosefire.sharedDelegate().signIn(registryToken: REGISTRY_TOKEN) { (err, result) in
-//          if let err = err {
-//            print("Rosefire sign in error! \(err)")
-//            return
-//          }
-//          print("Result = \(result!.token!)")
-//          print("Result = \(result!.username!)")
-//          print("Result = \(result!.name!)")
-//          print("Result = \(result!.email!)")
-//          print("Result = \(result!.group!)")
-//          Auth.auth().signIn(withCustomToken: result!.token) { (authResult, error) in
-//            if let error = error {
-//              print("Firebase sign in error! \(error)")
-//              return
-//            }
-//            // User is signed in using Firebase!
-//          }
-//        }
+        Rosefire.sharedDelegate().uiDelegate = self // This should be your view controller
+        Rosefire.sharedDelegate().signIn(registryToken: REGISTRY_TOKEN) { (err, result) in
+          if let err = err {
+            print("Rosefire sign in error! \(err)")
+            return
+          }
+          print("Result = \(result!.token!)")
+          print("Result = \(result!.username!)")
+          print("Result = \(result!.name!)")
+          print("Result = \(result!.email!)")
+          print("Result = \(result!.group!)")
+          
+            
+            Auth.auth().signIn(withCustomToken: result!.token) { (authResult, error) in
+            if let error = error {
+              print("Firebase sign in error! \(error)")
+              return
+            }
+            // User is signed in using Firebase!
+                self.performSegue(withIdentifier: self.showListSegueIdentifier, sender: self)
+          }
+        }
 
     }
 }
