@@ -19,7 +19,9 @@
 		F2639C1626969D860002F9AB /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C1526969D860002F9AB /* MovieQuotesTableViewController.swift */; };
 		F2639C1826969FF70002F9AB /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C1726969FF70002F9AB /* MovieQuote.swift */; };
 		F2639C1A2696AD640002F9AB /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */; };
+		F26A71DC26B8A10200E71272 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26A71DB26B8A10200E71272 /* UserManager.swift */; };
 		F2EB4A4A26B878A900B0F4CA /* SideNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB4A4926B878A900B0F4CA /* SideNavViewController.swift */; };
+		F2EB4A4C26B892E600B0F4CA /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB4A4B26B892E600B0F4CA /* ProfilePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +41,9 @@
 		F2639C1526969D860002F9AB /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 		F2639C1726969FF70002F9AB /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
 		F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
+		F26A71DB26B8A10200E71272 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F2EB4A4926B878A900B0F4CA /* SideNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavViewController.swift; sourceTree = "<group>"; };
+		F2EB4A4B26B892E600B0F4CA /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 				F2639C01268EBC950002F9AB /* SceneDelegate.swift */,
 				F2639C03268EBC950002F9AB /* ViewController.swift */,
 				F22F14CF26AE6F4B00C76576 /* LogInViewController.swift */,
+				F2EB4A4B26B892E600B0F4CA /* ProfilePageViewController.swift */,
 				F2639C192696AD640002F9AB /* MovieQuoteDetailViewController.swift */,
+				F26A71DB26B8A10200E71272 /* UserManager.swift */,
 				F2EB4A4926B878A900B0F4CA /* SideNavViewController.swift */,
 				F22F14C926ABD7F400C76576 /* GoogleService-Info.plist */,
 				F2639C05268EBC950002F9AB /* Main.storyboard */,
@@ -246,9 +252,11 @@
 				F2639C00268EBC950002F9AB /* AppDelegate.swift in Sources */,
 				F2639C1826969FF70002F9AB /* MovieQuote.swift in Sources */,
 				F22F14D026AE6F4B00C76576 /* LogInViewController.swift in Sources */,
+				F2EB4A4C26B892E600B0F4CA /* ProfilePageViewController.swift in Sources */,
 				F2639C1A2696AD640002F9AB /* MovieQuoteDetailViewController.swift in Sources */,
 				F2639C02268EBC950002F9AB /* SceneDelegate.swift in Sources */,
 				F2639C1626969D860002F9AB /* MovieQuotesTableViewController.swift in Sources */,
+				F26A71DC26B8A10200E71272 /* UserManager.swift in Sources */,
 				F2EB4A4A26B878A900B0F4CA /* SideNavViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
