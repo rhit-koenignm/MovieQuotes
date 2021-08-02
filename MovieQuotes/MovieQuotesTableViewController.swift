@@ -25,8 +25,8 @@ class MovieQuotesTableViewController: UITableViewController {
         
         //navigationItem.leftBarButtonItem = editButtonItem
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showMenu))
-        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showMenu))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
         
         
         movieQuotesRef = Firestore.firestore().collection("MovieQuotes")
@@ -36,36 +36,36 @@ class MovieQuotesTableViewController: UITableViewController {
 //        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
     }
     
-    @objc func showMenu() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        
-        let submitAction = UIAlertAction(title: "Create Quote", style: UIAlertAction.Style.default) { (action) in
-            self.showAddQuoteDialog()
-        }
-        alertController.addAction(submitAction)
-        let showAction = UIAlertAction(title: self.isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { (action) in
-            //Toggle the show all vs show mine mode.
-            self.isShowingAllQuotes = !self.isShowingAllQuotes
-            //Update
-            self.startListening()
-        }
-        alertController.addAction(showAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { (action) in
-            do {
-            try Auth.auth().signOut()
-            } catch {
-                print("Sign out error")
-            }
-        }
-        alertController.addAction(signOutAction)
-        
-        
-        present(alertController, animated: true, completion: nil)
-    }
+//    @objc func showMenu() {
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//
+//
+//        let submitAction = UIAlertAction(title: "Create Quote", style: UIAlertAction.Style.default) { (action) in
+//            self.showAddQuoteDialog()
+//        }
+//        alertController.addAction(submitAction)
+//        let showAction = UIAlertAction(title: self.isShowingAllQuotes ? "Show only my quotes" : "Show all quotes", style: UIAlertAction.Style.default) { (action) in
+//            //Toggle the show all vs show mine mode.
+//            self.isShowingAllQuotes = !self.isShowingAllQuotes
+//            //Update
+//            self.startListening()
+//        }
+//        alertController.addAction(showAction)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+//        alertController.addAction(cancelAction)
+//
+//        let signOutAction = UIAlertAction(title: "Sign Out", style: UIAlertAction.Style.default) { (action) in
+//            do {
+//            try Auth.auth().signOut()
+//            } catch {
+//                print("Sign out error")
+//            }
+//        }
+//        alertController.addAction(signOutAction)
+//
+//
+//        present(alertController, animated: true, completion: nil)
+//    }
     
     
     
