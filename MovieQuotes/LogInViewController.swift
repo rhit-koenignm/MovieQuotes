@@ -19,6 +19,7 @@ class LogInViewController: UIViewController {
     let REGISTRY_TOKEN = "2cc34286-ac2f-4754-b796-baba9632702a" //TODO go visit rosefire.csse.rose-hulman.edu to generate this!
     let showListSegueIdentifier = "ShowListSegue"
     
+    var roseFireName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        roseFireName = nil
         if Auth.auth().currentUser != nil {
             print("Someone is already signed in, move along")
             self.performSegue(withIdentifier: self.showListSegueIdentifier, sender: self)
@@ -88,6 +90,7 @@ class LogInViewController: UIViewController {
           print("Result = \(result!.token!)")
           print("Result = \(result!.username!)")
           print("Result = \(result!.name!)")
+            self.roseFireName = result!.name!
           print("Result = \(result!.email!)")
           print("Result = \(result!.group!)")
           
@@ -102,6 +105,15 @@ class LogInViewController: UIViewController {
           }
         }
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showListSegueIdentifier {
+            // Only segue so silly to check but I did
+            
+            print("Checking for user \(Auth.auth().currentUser!.uid)")
+            UserManager.shared.addNewUserMaybe(uid: Auth.auth().currentUser!.uid, name: roseFireName ?? Auth.auth().currentUser!.displayName, photoUrl: Auth.auth().currentUser!.photoURL?.absoluteString)
+        }
     }
     
 }

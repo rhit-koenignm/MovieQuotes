@@ -26,7 +26,27 @@ class UserManager {
     
     //Create
     func addNewUserMaybe(uid: String, name: String?, photoUrl: String?) {
+        // Get the user to see if they exist
+        // Add the user ONLY if they don't exist
         
+        let userRef = _collectionRef.document(uid)
+        userRef.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print("Error getting user \(error)")
+            }
+            if let documentSnapshot = documentSnapshot {
+                if documentSnapshot.exists {
+                    print("There is already a User object for this auth user. Do nothing")
+                    return
+                } else {
+                    print("Creating a User with document id \(uid)")
+                    userRef.setData([
+                        kKeyName: name ?? "",
+                        kKeyPhotoUrl: photoUrl ?? ""
+                    ])
+                }
+            }
+        }
     }
     
     //Read
