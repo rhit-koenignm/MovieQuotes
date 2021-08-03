@@ -411,24 +411,53 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PVO-mz-FQ1">
+                                <rect key="frame" x="194" y="581" width="200" height="261"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T8-OE-rYy">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RD1-aI-tkI">
+                                        <rect key="frame" x="0.0" y="30.5" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="dRb-ce-t8W"/>
+                                            <constraint firstAttribute="width" constant="200" id="pZu-TH-W72"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8S-9f-449">
+                                        <rect key="frame" x="0.0" y="240.5" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K7c-TQ-HVn"/>
                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kvb-ju-DRi" firstAttribute="top" secondItem="K7c-TQ-HVn" secondAttribute="top" constant="36" id="Cne-iK-Y0q"/>
                             <constraint firstItem="K7c-TQ-HVn" firstAttribute="trailing" secondItem="Kvb-ju-DRi" secondAttribute="trailing" constant="20" id="Faw-PP-tAW"/>
+                            <constraint firstItem="K7c-TQ-HVn" firstAttribute="trailing" secondItem="PVO-mz-FQ1" secondAttribute="trailing" constant="20" id="GhW-fu-hul"/>
                             <constraint firstItem="Kvb-ju-DRi" firstAttribute="leading" secondItem="K7c-TQ-HVn" secondAttribute="leading" constant="20" id="Mgy-QJ-gql"/>
+                            <constraint firstItem="K7c-TQ-HVn" firstAttribute="bottom" secondItem="PVO-mz-FQ1" secondAttribute="bottom" constant="20" id="Voj-1A-6Yt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M5x-IM-eB6"/>
                     <connections>
+                        <outlet property="authorBox" destination="PVO-mz-FQ1" id="mNx-g9-otb"/>
+                        <outlet property="authorNameLabel" destination="D8S-9f-449" id="xGB-FR-og2"/>
+                        <outlet property="authorProfileImageView" destination="RD1-aI-tkI" id="xeW-Mi-fw8"/>
                         <outlet property="movieLabel" destination="9Wf-EQ-e8P" id="dnH-FY-xh3"/>
                         <outlet property="quoteLabel" destination="cI3-WW-Ay0" id="uik-r0-myn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH9-dI-UrV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="483"/>
+            <point key="canvasLocation" x="1789.8550724637682" y="482.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rge-lz-Yfh">

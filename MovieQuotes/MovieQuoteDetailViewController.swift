@@ -13,6 +13,10 @@ class MovieQuoteDetailViewController: UIViewController {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var movieLabel: UILabel!
     
+    @IBOutlet weak var authorBox: UIStackView!
+    @IBOutlet weak var authorProfileImageView: UIImageView!
+    @IBOutlet weak var authorNameLabel: UILabel!
+    
     var movieQuote: MovieQuote?
     var movieQuoteRef: DocumentReference!
     var movieQuoteListener: ListenerRegistration!
@@ -57,6 +61,7 @@ class MovieQuoteDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //updateView()
+        authorBox.isHidden = true
         movieQuoteListener = movieQuoteRef.addSnapshotListener{ (DocumentSnapshot, error) in
             if let error = error {
                 print("Error getting movie quote \(error)")
@@ -76,10 +81,32 @@ class MovieQuoteDetailViewController: UIViewController {
                 self.navigationItem.rightBarButtonItem = nil
             }
             
+            
+            //Get the user object for this author
+            UserManager.shared.beginListening(uid: self.movieQuote!.author, changeListener: self.updateAuthorBox)
+            
             self.updateView()
             
         }
     }
+    
+    func updateAuthorBox() {
+        print("Update the author box for \(UserManager.shared.name)")
+        
+        authorBox.isHidden = (UserManager.shared.name.isEmpty) && (UserManager.shared.photoUrl.isEmpty)
+        
+        if (!UserManager.shared.name.isEmpty){
+            authorNameLabel.text = UserManager.shared.name
+        }
+        else  {
+            authorNameLabel.text = "unknown"
+        }
+    
+        if (!UserManager.shared.photoUrl.isEmpty) {
+            ImageUtils.load(imageView: authorProfileImageView, from: UserManager.shared.photoUrl)
+        }
+    }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
