@@ -16,4 +16,6 @@ target 'MovieQuotes' do
   pod 'SideMenu'
   pod 'Kingfisher', '~> 4.0'
   pod 'Rosefire', :git => 'https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git'
+  
+  pod 'Firebase/Storage'
 end

@@ -236,6 +236,9 @@ PODS:
   - Firebase/Firestore (8.4.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.4.0)
+  - Firebase/Storage (8.4.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.4.0)
   - FirebaseAnalytics (8.4.0):
     - FirebaseAnalytics/AdIdSupport (= 8.4.0)
     - FirebaseCore (~> 8.0)
@@ -285,6 +288,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseStorage (8.4.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -368,6 +374,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
+  - Firebase/Storage
   - GoogleSignIn (= 5.0.2)
   - Kingfisher (~> 4.0)
   - Rosefire (from `https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git`)
@@ -385,6 +392,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseInstallations
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
@@ -419,6 +427,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
   FirebaseFirestore: 99613cefa9102c08da94f584faa5adfaf21f31da
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
+  FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -434,6 +443,6 @@ SPEC CHECKSUMS:
   Rosefire: 9cb4c5447b71302962bd0c2beca22f320689c326
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: caf201d9e4f152cb3d71670a84b2613e1d52de3d
+PODFILE CHECKSUM: 440744cfec35b70748250541a41197b88c0e42ed
 
 COCOAPODS: 1.10.1
